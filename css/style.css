@@ -106,11 +106,16 @@ img {
 .mail-link,
 .tel-link {
     padding: 32px 0px;;
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .nav-list-item:not(:last-child) {
     margin-right: 50px;
 }
 .nav-list-link {
+    position: relative;
+
     font-weight: 500;
     font-size: 14px;
     line-height: 1.143;
@@ -121,10 +126,7 @@ img {
 .nav-list-link:focus {
     color: var(--accent-color);
 }
-/*...current color for active page*/
-.current {
-    color: var(--accent-color);
-}
+
 
 /*mail y telephone*/
 .mail-tel-list {
@@ -141,12 +143,16 @@ img {
     width: 16px;
     height: 12px;
     margin-right: 10px;
+
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .logo-phone {
     width: 10px;
     height: 16px;
     margin-right: 10px;
+
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .mail-link,
@@ -180,6 +186,23 @@ img {
 .tel-link:hover .logo-phone,
 .tel-link:focus .logo-phone {
     fill: var(--accent-color);
+}
+
+/*...current color for active page...*/
+.current {
+    color: var(--accent-color);
+}
+.current::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+
+    width: 100%;
+    height: 4px;
+    
+    border-radius: 2px;
+    background-color: var(--accent-color);
 }
 /*..........END HEADER..........*/
 
@@ -216,7 +239,7 @@ img {
     margin-right: auto;
     margin-left: auto;
 }
-.modal-btn {
+.hero-modal-btn {
     min-width: 200px;
     height: 50px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
@@ -224,6 +247,7 @@ img {
     background-color: var(--accent-color);
     border: 0px;
 
+    cursor: pointer;
     padding: 10px 30px;
 
     font-weight: 700;
@@ -238,8 +262,8 @@ img {
     margin-right: auto;
     margin-left: auto;
 }
-.modal-btn:hover,
-.modal-btn:focus {
+.hero-modal-btn:hover,
+.hero-modal-btn:focus {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     border-radius: 4px;
     background-color: var(--accent-color);
@@ -310,6 +334,28 @@ img {
 .profession-list-item:not(:last-child) {
     margin-right: 30px;
 }
+.profession-list-img-thumb {
+    position: relative;
+}
+.profession-img-descr {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+
+    padding: 27px 82px;
+    background-color: rgba(47, 48, 58, 0.8);
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.143;
+    text-align: center;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--white-text);
+}
+
+/*...TITLE FOR WORK AND TEAM...*/
 .section-title {
     margin-bottom: 50px;
 
@@ -319,7 +365,7 @@ img {
     text-align: center;
     letter-spacing: 0.03em;
     color: var(--main-text-col);
-} /*...TITLE FOR WORK AND TEAM...*/
+} 
 
 /*..........TEAM..........*/
 .team {
@@ -385,6 +431,8 @@ img {
     height: 44px;
 
     border-radius: 50%;
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-list-icon {
@@ -392,6 +440,8 @@ img {
     height: 20px;
 
     fill: var(--icon-color);
+
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-list-link:hover,
@@ -426,9 +476,13 @@ img {
     border: 1px solid #AFB1B8;
     box-sizing: border-box;
     border-radius: 4px;
+
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .clients-list-icon {
     fill: var(--icon-color);
+
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-list-link:hover,
@@ -502,10 +556,14 @@ img {
 }
 .footer .social-list-link {
    background-color: rgba(255, 255, 255, 0.1);
+
+   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer .social-list-icon {
     fill: var(--white-text);
+
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer .social-list-link:hover,
@@ -519,11 +577,65 @@ img {
 
 /*.......... END FOOTER..........*/
 
+/*.............MODAL WINDOW.............*/
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.modal-wnd {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 528px;
+    height: 581px;
+    background-color: var(--white-text);
+    box-shadow: 
+        0px 1px 3px rgba(0, 0, 0, 0.12),
+        0px 1px 1px rgba(0, 0, 0, 0.14), 
+        0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+
+    background-color: var(--white-text);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+.close-btn-icon {
+    width: 18px;
+    height: 18px;
+}
+.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+/*............. END MODAL WINDOW.............*/
 
 
 
 
 /*...............CSS FOR PAGE PORTFOLIO...............*/
+
 /*.......... MAIN PORTFOLIO..........*/
 .works {
     padding: 95px 0px;
@@ -559,6 +671,8 @@ img {
     text-align: center;
     letter-spacing: 0.03em;
     color: var(--main-text-col);
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .filter-btn:hover,
 .filter-btn:focus {
@@ -570,7 +684,7 @@ img {
     cursor: pointer;
 }
 
-/*...WORKS/PORTFOLIO...*/
+/*.......WORKS/PORTFOLIO.......*/
 .works-list {
     display: flex;
     align-items: center;
@@ -585,6 +699,9 @@ img {
 .works-item-link {
     display: block;
     width: 370px;
+
+    box-shadow: none;
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .works-list-item:not(:nth-child(3n)) {
@@ -600,6 +717,37 @@ img {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 
     0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+/* .....текст ОВЕРЛЕЙ...для ПОРТФОЛИО..... */
+.works-img-thumb {
+    position: relative;
+    overflow: hidden;
+}
+.works-img-descrp {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    background-color: rgba(33, 150, 243, 0.9);
+    padding: 63px 24px;
+
+    font-size: 18px;
+    line-height: 1.56;
+    /* or 156% */
+    letter-spacing: 0.03em;
+    color: var(--white-text);
+
+    transform: translateY(100%);
+
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.works-item-link:hover .works-img-descrp,
+.works-item-link:focus .works-img-descrp {
+    transform: translateY(0);
 }
 /*контейнер для падингов для карточек ПОРТФОЛИО*/
 .portfolio-pad{

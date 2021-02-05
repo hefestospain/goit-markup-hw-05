@@ -54,7 +54,7 @@
         <section class="hero">
             <div class="container">
                 <h1 class="hero-title">Эффективные решения <br> для вашего бизнеса</h1>
-                <button class="modal-btn" type="button">Заказать услугу</button>
+                <button class="hero-modal-btn" type="button" data-modal-open>Заказать услугу</button>
             </div>
         </section>
         <!--Our strengths-->
@@ -107,13 +107,22 @@
                 <h2 class="section-title">Чем мы занимаемся</h2>
                 <ul class="profession-list list">
                     <li class="profession-list-item">
-                        <img src="./images/work/img_1.jpg" alt="Человек програмирует" width="370" height="274">
+                        <div class="profession-list-img-thumb">
+                            <img src="./images/work/img_1.jpg" alt="Человек програмирует" width="370" height="274">
+                            <p class="profession-img-descr">Десктопные приложения</p>
+                        </div>
                     </li>
                     <li class="profession-list-item">
-                        <img src="./images/work/img_2.jpg" alt="Человек адаптирует приложение/страницу под телефоны" width="370" height="274">
+                        <div class="profession-list-img-thumb">
+                            <img src="./images/work/img_2.jpg" alt="Человек адаптирует приложение/страницу под телефоны" width="370" height="274">
+                            <p class="profession-img-descr">Мобильные приложения</p>
+                        </div>
                     </li>
                     <li class="profession-list-item">
-                        <img src="./images/work/img_3.jpg" alt="Человек занимаеться дизайном" width="370" height="274">
+                        <div class="profession-list-img-thumb">
+                            <img src="./images/work/img_3.jpg" alt="Человек занимаеться дизайном" width="370" height="274">
+                            <p class="profession-img-descr">Дизайнерские решения</p>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -383,5 +392,18 @@
             </div>
         </div>
     </footer>
+    <!-- MODAL WINDOW -->
+    <div class="backdrop is-hidden" data-modal>
+        <div class="modal-wnd">
+            <button type="button" class="modal-close-btn" data-modal-close>
+                <svg class="close-btn-icon">
+                    <use href="./images/sprite.svg#close-btn"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- CONECTION OF SCRIPTs -->
+    <script src="./js/modal.js"></script>
 </body>
 </html>
